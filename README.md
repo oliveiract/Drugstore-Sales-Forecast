@@ -13,6 +13,7 @@ De acordo com o seu site, a variedade das filiais é norteada pelas necessidades
 ## 1.2. Dados
 
 Os dados foram obtidos no [Kaggle](https://www.kaggle.com/c/rossmann-store-sales/data) e contém informações sobre as vendas diárias de 1.115 lojas da Rossmann. O conjunto de dados contém informações sobre promoções, feriados e características da loja.
+
 # 2. Contexto - Problema Fictício 
 
 Com o intuito de reformar as lojas, o CFO (Diretor Financeiro) da empresa Rossmann, numa reunião com todos os gerentes de loja, solicitou a cada um deles uma previsão diária de vendas, das próximas 6 semanas. Para um melhor resultado, essa demanda foi repassada para o time de Data Science.
@@ -87,7 +88,7 @@ Após passar pelas análises (univariada, bivariada e multivariada), os principa
 <img src="https://imgur.com/85tUf3J.png" width="1200">
 
 ### 3.2.3. Pré-processamento de dados e Seleção de Recursos
-Chegou a etapa de preparação dos dados para que posteriormente ocorra a aplicação de algoritmos de aprendizagem de máquina. Como o aprendizado da maioria dos algoritmos de ML é facilitado com dados númericos, técnicas foram necessárias: 
+Chegou a etapa de preparação dos dados para que posteriormente ocorra a aplicação de algoritmos de aprendizagem de máquina. Como o aprendizado da maioria dos algoritmos de ML é facilitado com dados numéricos, técnicas foram necessárias: 
 - ***de rescaling:*** Robust Scaler para as variáveis `competition_distance` e `competition_time_month` e Min-Max Scaler para `year` e `promo_month_time_week`;
 - ***transformação - enconding:*** para variável `state_holiday`, foi utilizado One Hot Enconding; para a variável `store_type`, a Label Enconding; e para a variável `assortment`, a Ordinal Enconding;
 - ***transformação - grandeza*:** na variável resposta `sales` foi usado o log1p, visando uma distribuição mais próxima do normal;
@@ -109,7 +110,7 @@ XGBoost Regressor | 987.94 | 0.13 | 1407.43
 Linear Regression | 1980.04| 0.28 | 2840.0
 Lasso Regression | 2014.53 | 0.28 | 2918.82
 
-Ainda que o XGBoost não tenha obtido a melhor performance, o algoritmo foi escolhido para realizar a previsão de vendas, pois treina os dados mcom mais reapidez.
+Ainda que o XGBoost não tenha obtido a melhor performance, o algoritmo foi escolhido para realizar a previsão de vendas, pois treina os dados com mais rapidez.
 
 **O resultado final abaixo, com o ajuste de hiperparâmetros**
 
@@ -120,7 +121,7 @@ XGBoost Regressor | 614.31 | 0.089 | 898.91 |
 
 ### 3.2.5. Avaliação do Desempenho do Algoritmo
 
-O modelo é analisado sob uma perspectiva de negócios. As imagens abaixo mostram uma comparação de resultados, com o melhor w pior cenário de previsão. 
+O modelo é analisado sob uma perspectiva de negócios. As imagens abaixo mostram uma comparação de resultados, com o melhor e pior cenário de previsão. 
 
 ***Lojas com melhor desempenho - previsões com até 4% de erro***
 <img src="https://imgur.com/UHiOq9r.png" width="1200">
@@ -138,19 +139,21 @@ worst_scenario	| 285,054,422.60
 best_scenario	| 286,432,960.15
 
 **Os gráficos abaixo mostram a performance do modelo.** 
-- No gráfico ***Sales Variance***, as vendas reais e estimadas são comparadas. 
-- O gráfico ***%*** exibe a taxa de erro nas últimas 6 semanas. Uma taxa acima de 1, as predições estão superstimadas, enquanto menor que 1, estão subestimadas.
-- O 3º gráfico ***Error Distribution***, distribuição do erro, é usado na análise do resíduo, uma teoria que o erro é analisado. O ideal é ter uma distribuição em forma de sino e com média zero.
-- O último gráfico ***Residues***, exibe as previsões em relação ao erro. Espera-se que os erros estejam concentrados em um tubo (erros com pouca variação).
+- No gráfico ***Sales Variance***, as vendas reais e estimadas são comparadas;
+- O gráfico ***%*** exibe a taxa de erro nas últimas 6 semanas. Uma taxa acima de 1, as predições estão superestimadas, enquanto menor que 1, estão subestimadas;
+- O 3º gráfico ***Error Distribution***, distribuição do erro, é usado na análise do resíduo, uma teoria que o erro é analisado. O ideal é ter uma distribuição em forma de sino e com média zero;
+- O último gráfico ***Residues***, exibe as previsões em relação ao erro. Espera-se que os erros estejam concentrados num tubo (erros com poucas variações).
 
 <img src="https://imgur.com/bRHSw9P.png" width="1200">
 
 ### 3.2.6. Modelo em Produção
 
-Para acesso rápido as previsões de vendas, um Bot no Telegram foi criado, usando Flask e Render. Como mostra o vídeo abaixo, é so enviar o número da loja que deseja, que um mensagem será retornada com a previsão de vendas.
+Para acesso rápido as previsões de vendas, foi criado um [Bot no Telegram](https://t.me/rssmnn_bot), usando Flask e Render. Como mostra o vídeo abaixo, é so enviar o número da loja que deseja, que uma mensagem será retornada com a previsão de vendas.
+
+https://github.com/ctosta/Rossmann-Sales-Forecast/assets/84297748/20f61fd7-a515-49a5-91f2-aeb270bfb895
 
 
-## 3.3 Conclusão e Próximos Passos
+# 4.0. Conclusão e Próximos Passos
 
 Para o primeiro ciclo do CRISP-DS, o modelo apresentou resultados medianos. É necessário que o projeto passe por outros ciclos a fim de melhorar a assertividade das previsões. Nos próximos ciclos podemos: 
 - Adicionar mais variáveis;

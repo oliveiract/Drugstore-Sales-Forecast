@@ -27,7 +27,7 @@ Com o intuito de reformar as lojas, o CFO (Diretor Financeiro) da empresa Rossma
 
 ## 3.2. Metodologia
 
-Neste projeto, a metodologia CRISP-DS foi implementada para entregar valor ao negócio. Em síntese, a estrutura do projeto Rossmann Sales Forecast foi a seguinte:
+Neste projeto, a metodologia CRISP-DM foi implementada para entregar valor ao negócio. Em síntese, a estrutura do projeto Rossmann Sales Forecast foi a seguinte:
 
 ### 3.2.1. Entendimento do Negócio + Premissas + Limpeza de Dados:
 
@@ -155,7 +155,7 @@ https://github.com/ctosta/Rossmann-Sales-Forecast/assets/84297748/20f61fd7-a515-
 
 # 4.0. Conclusão e Próximos Passos
 
-Para o primeiro ciclo do CRISP-DS, o modelo apresentou resultados medianos. É necessário que o projeto passe por outros ciclos a fim de melhorar a assertividade das previsões. Nos próximos ciclos podemos: 
+Para o primeiro ciclo do CRISP-DM, o modelo apresentou resultados medianos. É necessário que o projeto passe por outros ciclos a fim de melhorar a assertividade das previsões. Nos próximos ciclos podemos: 
 - Adicionar mais variáveis;
 - Criar novas hipóteses e validá-las;
 - Analisar os erros acima de R$ 10.000 e criar modelos específicos para as lojas mais difíceis (MAPE alto).
